@@ -1,5 +1,6 @@
 package com.upeu.cg_matricula.service;
 
+import com.upeu.cg_matricula.dto.MatriculaDTO;
 import com.upeu.cg_matricula.entity.Matricula;
 
 import java.util.List;
@@ -21,4 +22,6 @@ public interface MatriculaService {
 
     // Eliminar una matrícula por ID
     void eliminarMatricula(Long idMatricula);
+
+    MatriculaDTO obtenerMatriculaConDetalles(Long idMatricula);
 }

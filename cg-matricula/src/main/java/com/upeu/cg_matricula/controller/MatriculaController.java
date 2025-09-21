@@ -1,5 +1,6 @@
 package com.upeu.cg_matricula.controller;
 
+import com.upeu.cg_matricula.dto.MatriculaDTO;
 import com.upeu.cg_matricula.entity.Matricula;
 import com.upeu.cg_matricula.service.MatriculaService;
 import org.springframework.http.ResponseEntity;
@@ -50,5 +51,15 @@ public class MatriculaController {
     public ResponseEntity<Void> eliminarMatricula(@PathVariable Long id) {
         matriculaService.eliminarMatricula(id);
         return ResponseEntity.noContent().build();
+    }
+
+    @GetMapping("/{id}/detalles")
+    public ResponseEntity<MatriculaDTO> obtenerMatriculaConDetalles(@PathVariable Long id) {
+        try {
+            MatriculaDTO dto = matriculaService.obtenerMatriculaConDetalles(id);
+            return ResponseEntity.ok(dto);
+        } catch (RuntimeException e) {
+            return ResponseEntity.notFound().build();
+        }
     }
 }
