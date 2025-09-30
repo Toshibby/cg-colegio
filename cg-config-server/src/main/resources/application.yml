@@ -9,7 +9,7 @@ spring:
         git:
           uri: https://github.com/Toshibby/cg-colegio.git # ruta del repositorio git
           searchPaths: config-data
-          default-label: main
+          default-label: circuitbreaker
   security:
     user:
       name: root
