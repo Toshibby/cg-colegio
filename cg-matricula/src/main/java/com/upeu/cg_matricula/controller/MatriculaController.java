@@ -25,10 +25,13 @@ public class MatriculaController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Matricula> obtenerMatricula(@PathVariable Long id) {
-        return matriculaService.obtenerMatriculaPorId(id)
-                .map(ResponseEntity::ok)
-                .orElseGet(() -> ResponseEntity.notFound().build());
+    public ResponseEntity<MatriculaDTO> obtenerMatricula(@PathVariable Long id) {
+        try {
+            MatriculaDTO dto = matriculaService.obtenerMatriculaConDetalles(id);
+            return ResponseEntity.ok(dto);
+        } catch (RuntimeException e) {
+            return ResponseEntity.notFound().build();
+        }
     }
 
     @PostMapping
