@@ -16,7 +16,7 @@ public interface CursoFeign {
     default CursoDTO fallbackCurso(Long id, Exception e) {
         CursoDTO cursoDTO = new CursoDTO();
         cursoDTO.setIdCurso(9000000L);
-        cursoDTO.setNombre("Servicios de alumno no  disponible");
+        cursoDTO.setNombre("Servicios de curso no  disponible");
         return cursoDTO;
     }
 }
