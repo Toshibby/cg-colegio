@@ -28,12 +28,18 @@ spring:
               uri: lb://cg-curso
               predicates:
                 - Path=/alumnos/**,/cursos/**
-
+              filters:
+                - AuthFilter
 
             - id: cg-matricula
               uri: lb://cg-matricula
               predicates:
                 - Path=/matriculas/**
+
+            - id: cg-auth
+              uri: lb://cg-auth
+              predicates:
+                - Path=/auth/**
 
 
 #server:
