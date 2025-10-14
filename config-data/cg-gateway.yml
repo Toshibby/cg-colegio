@@ -21,13 +21,11 @@ spring:
           filters:
             - AuthFilter
 
-        # RUTA HACIA MICROSERVICIO DE MATRÍCULAS
         - id: cg-matricula
           uri: lb://cg-matricula
           predicates:
             - Path=/matriculas/**
 
-        # RUTA HACIA MICROSERVICIO DE AUTENTICACIÓN
         - id: cg-auth
           uri: lb://cg-auth
           predicates:
